@@ -11,11 +11,11 @@ export default function Navbar() {
         <nav className='py-10'>
             <div className='container mx-auto'>
                 <div className='flex items-center'>
-                    <div className='w-1/12 flex items-center'>
+                    <div className='w-2/12 flex items-center'>
                         <div className='h-10 w-10 bg-gray-500 rounded flex justify-center items-center mr-3 shadow-xl'>E</div>
                         Epictetus
                         </div>
-                    <div className='w-9/12'>
+                    <div className='w-8/12'>
                         <ul className='flex items-center space-x-14 justify-center'>
                             <li><a href='#' className='hover:underline'>UI Design</a></li>
                             <li><a href='#' className='hover:underline'>Front-End</a></li>

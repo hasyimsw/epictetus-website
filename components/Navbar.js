@@ -15,7 +15,7 @@ export default function Navbar() {
                         <div className='h-10 w-10 bg-gray-500 rounded flex justify-center items-center mr-3 shadow-xl'>E</div>
                         Epictetus
                         </div>
-                    <div className='w-8/12'>
+                    <div className='w-7/12'>
                         <ul className='flex items-center space-x-14 justify-center'>
                             <li><a href='#' className='hover:underline'>UI Design</a></li>
                             <li><a href='#' className='hover:underline'>Front-End</a></li>
@@ -38,7 +38,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <div className='w-2/12'>
+                    <div className='w-3/12'>
                         <input className="py-2 px-5 bg-gray-800 w-full rounded-full" placeholder='Search..' />
                     </div>
                 </div>

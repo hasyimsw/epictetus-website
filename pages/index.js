@@ -6,6 +6,7 @@ import Navbar from "@components/Navbar";
 import FeaturedPost from "@components/FeaturedPost";
 import CardPost from "@components/CardPost";
 import Footer from '@components/Footer';
+import Container from '@components/Container';
 
 export default function Home() {
 
@@ -81,17 +82,17 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-b from-gray-600 to-gray-900 min-h-screen text-white">
       <Navbar />
-      <div className="container mx-auto">
+      <Container>
         <FeaturedPost />
         <div className="flex -mx-4 flex-wrap mt-6">
           {posts.map(post => (
-            <div key={post.id} className="w-4/12 px-4 py-6">
+            <div key={post.id} className="md:w-4/12 w-full px-4 py-6">
               <CardPost {...post} />
             </div>
           ))}
         </div>
-        <Footer />
-      </div>
+      </Container>
+      <Footer />
     </div>
   );
 }

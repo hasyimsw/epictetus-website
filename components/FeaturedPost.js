@@ -3,7 +3,7 @@ import InfoPost from "./InfoPost";
 export default function FeaturedPost() {
     return(
         <article>
-            <div className="flex -mx-4 items-center justify-center flex-wrap">
+            <div className="flex -mx-4 items-center justify-center flex-wrap mt-10">
                 <div className="px-4 lg:w-8/12 md:w-7/12 w-full pb-5 md:pb-0">
                     <img src="/featured-thumbnail.png" className="rounded-md w-full" />
                 </div>

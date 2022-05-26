@@ -3,6 +3,7 @@ import Container from './Container';
 
 export default function Navbar() {
     const [dropdown, setDropdown] = useState(false);
+    const [offcanvas, setOffcanvas] = useState(false);
     const dropdownList = [
     { text: 'Internet', href: '#' },
     { text: 'Books', href: '#' },
@@ -12,12 +13,29 @@ export default function Navbar() {
         <nav className='py-10'>
             <Container>
                 <div className='flex items-center'>
-                    <div className='w-2/12 flex items-center'>
-                        <div className='h-10 w-10 bg-gray-500 rounded flex justify-center items-center mr-3 shadow-xl'>E</div>
+                    <div className='w-3/12 lg:hidden'>
+                        <button onClick={() => { setOffcanvas(!offcanvas)} }>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div className='lg:w-2/12 w-6/12 flex items-center justify-center lg:justify-start'>
+                        <div className='lg:h-10 lg:w-10 h-8 w-8 bg-gray-500 rounded flex justify-center items-center mr-3 shadow-xl'>E</div>
                         Epictetus
-                        </div>
-                    <div className='w-7/12'>
-                        <ul className='flex items-center space-x-14 justify-center'>
+                    </div>
+                    <div className='w-3/12 lg:hidden text-right'>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <div className={`lg:w-7/12 w-full fixed bg-gradient-to-b from-gray-600 to-gray-900 top-0 h-full p-10 transition-all duration-500 ${offcanvas ? 'left-0' : '-left-full'}`}>
+                        <button className='absolute top-5 right-5' onClick={() => { setOffcanvas(false) }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <ul className='flex lg:items-center lg:space-x-14 flex-col space-y-4'>
                             <li><a href='#' className='hover:underline'>UI Design</a></li>
                             <li><a href='#' className='hover:underline'>Front-End</a></li>
                             <li><a href='#' className='hover:underline'>Back-End</a></li>
@@ -39,7 +57,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <div className='w-3/12'>
+                    <div className='w-3/12 hidden'>
                         <input className="py-2 px-5 bg-gray-800 w-full rounded-full" placeholder='Search..' />
                     </div>
                 </div>

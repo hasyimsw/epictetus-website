@@ -14,6 +14,9 @@ export default function Home() {
 
   return (
     <Layout>
+      <Head>
+        <title>Home &mdash; Epictetus</title>
+      </Head>
       <Container>
         <FeaturedPost />
         <div className="flex -mx-4 flex-wrap mt-6">

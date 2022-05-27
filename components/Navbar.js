@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import Container from './Container';
+import Link from 'next/link';
 
 export default function Navbar() {
     const [dropdown, setDropdown] = useState(false);
     const [offcanvas, setOffcanvas] = useState(false);
     const [search, setSearch] = useState(false);
     const dropdownList = [
-    { text: 'Internet', href: '#' },
-    { text: 'Books', href: '#' },
-    { text: 'Open Source', href: '#' },
+    { text: 'Internet', href: '/posts' },
+    { text: 'Books', href: '/posts' },
+    { text: 'Open Source', href: '/posts' },
     ];
     return(
         <nav className='py-10'>
@@ -21,9 +22,13 @@ export default function Navbar() {
                             </svg>
                         </button>
                     </div>
-                    <div className='lg:w-2/12 w-6/12 flex items-center justify-center lg:justify-start'>
-                        <div className='lg:h-10 lg:w-10 h-8 w-8 bg-gray-500 rounded flex justify-center items-center mr-3 shadow-xl'>E</div>
-                        Epictetus
+                    <div className='lg:w-2/12 w-6/12'>
+                        <Link href="/">
+                            <a className='flex items-center justify-center lg:justify-start'>
+                                <div className='lg:h-10 lg:w-10 h-8 w-8 bg-gray-500 rounded flex justify-center items-center mr-3 shadow-xl'>E</div>
+                                Epictetus
+                            </a>
+                        </Link>
                     </div>
                     <div className='w-3/12 lg:hidden text-right'>
                         <button onClick={() => setSearch(!search) }>
@@ -39,9 +44,9 @@ export default function Navbar() {
                             </svg>
                         </button>
                         <ul className='flex lg:items-center lg:space-x-14 flex-col space-y-4 lg:flex-row lg:space-y-0'>
-                            <li><a href='#' className='hover:underline'>UI Design</a></li>
-                            <li><a href='#' className='hover:underline'>Front-End</a></li>
-                            <li><a href='#' className='hover:underline'>Back-End</a></li>
+                            <li><Link href="/posts"><a className='hover:underline'>UI Design</a></Link></li>
+                            <li><Link href="/posts"><a className='hover:underline'>Front-End</a></Link></li>
+                            <li><Link href="/posts"><a className='hover:underline'>Back-End</a></Link></li>
                             <li className='relative'>
                             <a className='hover:underline cursor-pointer flex items-center' onClick={() => setDropdown(!dropdown)}>
                                 Lainnya <svg className='ml-1' width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -50,9 +55,11 @@ export default function Navbar() {
                                 <ul className='absolute w-[200px] rounded shadow-lg mt-4 bg-gray-800'>
                                 {dropdownList.map(({ text, href }) => (
                                     <li key={text} className="border-b border-white/5 last:border-0">
-                                    <a href={href} className='py-3 px-5 flex hover:bg-gray-700/60'>
-                                        {text}
-                                    </a>
+                                        <Link href={href}>
+                                            <a className='py-3 px-5 flex hover:bg-gray-700/60'>
+                                                {text}
+                                            </a>
+                                        </Link>
                                     </li>
                                 ))}
                                 </ul>

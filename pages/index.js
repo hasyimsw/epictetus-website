@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import FeaturedPost from "@components/FeaturedPost";
 import CardPost from "@components/CardPost";
 import Container from '@components/Container';
